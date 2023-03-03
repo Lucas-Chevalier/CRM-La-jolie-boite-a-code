@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #e8f1f9; }
+	</style>
+{% endblock %}
+
+
+{% block title %}
+Show titanic members
+{% endblock %}
+
+<ul>
+    {% for item in data %}
+    <li> {{ Name }} {{ City }}         {{ N_invoice }}</li>
+    {% endfor %}
+</ul>
+
+
+
+</body>
+</html>
