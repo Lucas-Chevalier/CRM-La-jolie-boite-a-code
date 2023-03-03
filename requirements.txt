@@ -1,0 +1,9 @@
+Flask
+Flask-Bootstrap4
+Flask-WTF
+Jinja2
+pylint
+pytest
+requests
+Werkzeug
+WTForms
