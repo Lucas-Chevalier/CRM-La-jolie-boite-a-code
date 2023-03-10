@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Page d'accueil</title>
 </head>
 <body>
 {% extends 'bootstrap/base.html' %}
 {% import "bootstrap/wtf.html" as wtf %}
-
 {% block styles %}
 {{ super() }}
 	<style>
@@ -17,7 +16,28 @@
 
 
 {% block title %}
-Show titanic members
+<table>
+    <tr>
+        <th>PassengerId</th>
+        <th>Survived</th>
+        <th>Pclass</th>
+        <th>Name</th>
+        <th>Modifier</th>
+        <th>Supprimer</th>
+    </tr>
+    {% for result in list %}
+    <tr>
+        <td>{{ result[0] }}</td>
+        <td>{{ result[1] }}</td>
+        <td>{{ result[2] }}</td>
+        <td>{{ result[3] }}</td>
+        <td><a href="/titanic/edit/{{result[0]}}">Modifier</a></td>
+        <td><a href="/titanic/delete/{{result[0]}}">Supprimer</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}
 
 <ul>
