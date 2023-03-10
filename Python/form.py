@@ -9,38 +9,38 @@ import sqlite3
 
 class AddProspect(FlaskForm):
     Name = StringField('Nom*', validators=[DataRequired()])
-    N_siret = IntegerField('Numero de siret*', validators=[DataRequired()])
-    Address = StringField('Addresse*', validators=[DataRequired()])
+    N_siret = IntegerField('Numéro de siret*', validators=[DataRequired()])
+    Address = StringField('Adresse*', validators=[DataRequired()])
     Postalcode = IntegerField('Code Postal*', validators=[DataRequired()])
     City = StringField('Ville*', validators=[DataRequired()])
     Description = StringField('Description')
     Url = StringField('URL du site')
-    Submit = SubmitField('Submit')
+    Submit = SubmitField('Envoyer')
 
 
 class AddContact(FlaskForm):
     LastName = StringField('Nom*', validators=[DataRequired()])
-    FirstName = StringField('Prenom*', validators=[DataRequired()])
+    FirstName = StringField('Prénom*', validators=[DataRequired()])
     Email = StringField('Email*', validators=[DataRequired()])
     Job = StringField('Job')
     Phone = StringField('Téléphone')
     Status = SelectField('Statut*', choices=['Actif', 'Inactif'])
-    Submit = SubmitField('Submit')
+    Submit = SubmitField('Envoyer')
 
 
 class ModifyContact(FlaskForm):
     LastName = StringField('Nom*', validators=[DataRequired()])
-    FirstName = StringField('Prenom*', validators=[DataRequired()])
+    FirstName = StringField('Prénom*', validators=[DataRequired()])
     Email = StringField('Email*', validators=[DataRequired()])
     Job = StringField('Job')
     Phone = StringField('Téléphone')
     Status = SelectField('Statut*', choices=['Actif', 'Inactif'])
-    Submit = SubmitField('Submit')
+    Submit = SubmitField('Envoyer')
 
 
 class AddComment(FlaskForm):
     Description = StringField('Description*', validators=[DataRequired()])
-    Submit = SubmitField('Submit')
+    Submit = SubmitField('Envoyer')
 
 
 class CreateInvoice(FlaskForm):

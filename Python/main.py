@@ -16,6 +16,7 @@ database_conn = None  # DB Connector
 database_filename = 'CRM.sqlite'
 
 
+
 @app.route('/CRM_Boite_a_code/add_prospect', methods=['GET', 'POST'])
 def addprospect():
     form = AddProspect()
@@ -29,7 +30,7 @@ def addprospect():
         print("aaaaaaa")
         cur = database_conn.cursor()
         cur.execute(query)
-        #database_conn.execute(query)
+        database_conn.execute(query)
         return redirect(location="/CRM_Boite_a_code/add_comment")
 
     return render_template('titanic.html', form=form)
@@ -41,11 +42,30 @@ def addcontact():
 
     if form.validate_on_submit():
         database_conn = sqlite3.connect(database_filename, check_same_thread=False)
-        query = "INSERT INTO Contact (LastName, FirstName, Email, Job, City, Phone) VALUES " \
-                f"({form.LastName.data}, {form.FirstName.data},'{form.Email.data}', '{form.Job.data}'," \
-                f" {form.Phone.data},{form.Status.data}')"
+        query = "INSERT INTO Contact (LastName, FirstName, Email, Job, Phone, Status) VALUES " \
+                f"('{form.LastName.data}', '{form.FirstName.data}','{form.Email.data}', '{form.Job.data}'," \
+                f" '{form.Phone.data}','{form.Status.data}')"
+        cur = database_conn.cursor()
+        cur.execute(query)
+        database_conn.execute(query)
+        return redirect(location="/CRM_Boite_a_code/add_comment")
     return render_template('titanic.html', form=form)
 
+
+@app.route('/CRM_Boite_a_code/modify_contact', methods=['GET', 'POST'])
+def modifycontact():
+    form = ModifyContact()
+
+    if form.validate_on_submit():
+        database_conn = sqlite3.connect(database_filename, check_same_thread=False)
+        query = "UPDATE Contact (LastName, FirstName, Email, Job, City, Phone) SET " \
+                f"({form.LastName.data}, {form.FirstName.data},'{form.Email.data}', '{form.Job.data}'," \
+                f" {form.Phone.data},{form.Status.data}')"
+        cur = database_conn.cursor()
+        cur.execute(query)
+        database_conn.execute(query)
+        return redirect(location="/CRM_Boite_a_code/add_comment")
+    return render_template('titanic.html', form=form)
 
 
 @app.route('/CRM_Boite_a_code/add_comment', methods=['GET', 'POST'])
@@ -55,7 +75,11 @@ def addcomment():
     if form.validate_on_submit():
         database_conn = sqlite3.connect(database_filename, check_same_thread=False)
         query = "INSERT INTO Comment (Description) VALUES " \
-                f"({form.Description.data},')"
+                f"('{form.Description.data}')"
+        cur = database_conn.cursor()
+        cur.execute(query)
+        database_conn.execute(query)
+        return redirect(location="/CRM_Boite_a_code")
     return render_template('titanic.html', form=form)
 
 @app.route('/CRM_Boite_a_code')
@@ -65,7 +89,6 @@ def index():
     query = "SELECT Name, City FROM LegalEntity"
     result = cur.execute(query)
     return render_template('titanic_list.html', list=result)
-
 
 
 # Press the green button in the gutter to run the script.

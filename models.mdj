@@ -3469,6 +3469,7 @@
 								"$ref": "AAAAAAGGO1pPRu1YbiY="
 							},
 							"name": "nom",
+							"featureDirection": "required",
 							"type": "string"
 						},
 						{
@@ -3478,6 +3479,7 @@
 								"$ref": "AAAAAAGGO1pPRu1YbiY="
 							},
 							"name": "n_siret",
+							"featureDirection": "required",
 							"type": "int"
 						},
 						{
@@ -3487,6 +3489,7 @@
 								"$ref": "AAAAAAGGO1pPRu1YbiY="
 							},
 							"name": "adresse_postale",
+							"featureDirection": "required",
 							"type": "string"
 						},
 						{
@@ -3496,6 +3499,7 @@
 								"$ref": "AAAAAAGGO1pPRu1YbiY="
 							},
 							"name": "code_postal",
+							"featureDirection": "required",
 							"type": "int"
 						},
 						{
@@ -3505,6 +3509,7 @@
 								"$ref": "AAAAAAGGO1pPRu1YbiY="
 							},
 							"name": "ville",
+							"featureDirection": "required",
 							"type": "string"
 						},
 						{
@@ -3648,6 +3653,7 @@
 								"$ref": "AAAAAAGGO1pURe2B/aU="
 							},
 							"name": "nom",
+							"featureDirection": "required",
 							"type": "string"
 						},
 						{
@@ -3657,6 +3663,7 @@
 								"$ref": "AAAAAAGGO1pURe2B/aU="
 							},
 							"name": "prénom",
+							"featureDirection": "required",
 							"type": "string"
 						},
 						{
@@ -3666,6 +3673,7 @@
 								"$ref": "AAAAAAGGO1pURe2B/aU="
 							},
 							"name": "email",
+							"featureDirection": "required",
 							"type": "mail"
 						},
 						{
@@ -3693,6 +3701,7 @@
 								"$ref": "AAAAAAGGO1pURe2B/aU="
 							},
 							"name": "statut",
+							"featureDirection": "required",
 							"type": "bool"
 						}
 					]
@@ -3781,6 +3790,7 @@
 								"$ref": "AAAAAAGGO1pY9u2qHlY="
 							},
 							"name": "login",
+							"featureDirection": "required",
 							"type": "string"
 						},
 						{
@@ -3791,6 +3801,7 @@
 							},
 							"name": "mot_de_passe",
 							"visibility": "private",
+							"featureDirection": "required",
 							"type": "string"
 						}
 					],
@@ -3860,6 +3871,7 @@
 								"$ref": "AAAAAAGGO19fce5FbiU="
 							},
 							"name": "description",
+							"featureDirection": "required",
 							"type": "text"
 						},
 						{

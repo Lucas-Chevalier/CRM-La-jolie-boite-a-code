@@ -2,16 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>title</title>
 </head>
 <body>
+<header>
+<h1>La jolie boite à code</h1>
+    <ul>
+        <li>Home</li>
+        <li>Déconnexion</li>
+    </ul>
+</header>
+
 {% extends 'bootstrap/base.html' %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block styles %}
 {{ super() }}
 	<style>
-		body { background: #e8f1f9; }
+		body { background: white; padding: 0; margin: 0; height: 100vh; }
+		body * { font-family: "Open Sans Regular"; font-weight: 400; font-size: 16px; line-height: 1.5; }
+		header { background: #E85581; display: flex; height: 50px; width: 100%; }
+	    h1 {  margin: 0; padding: 13px; width: 50%; text-align: center; }
+		ul { list-style-type: none; margin: 0; padding: 13px; width: 50%; display: inline; text-align: end; }
+		li { display: inline; }
+		form { background: #FCF3CF; text-align: center; }
+		.form-group { text-align: -webkit-center; }
+		.form-control { width: 50%; }
 	</style>
 {% endblock %}
 
