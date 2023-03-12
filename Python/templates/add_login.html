@@ -2,21 +2,32 @@
   <head>
     <title>Flask Intro - login page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
   </head>
   <body>
+  <header>
+    <h1>La jolie boite à code</h1>
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li>Déconnexion</li>
+    </ul>
+  </header>
     <div class="container">
-      <h1>Please login</h1>
+      <span class="title border-radius-top jaune">Créer un compte</span>
       <br>
-      <form action="" method="post">
-        <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-        <input type="text" placeholder="Login" name="login" value="{{
-          request.form.login }}">
-         <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
-        <input class="btn btn-default" type="submit" value="Login">
-      </form>
+      <div class="form-add-login">
+         <form action="" method="post" class="add-login-form">
+           <input class="input-login" type="text" placeholder="Username" name="username" value="{{
+              request.form.username }}">
+           <input class="input-login" type="text" placeholder="Login" name="login" value="{{
+              request.form.login }}">
+           <input class="input-login" type="password" placeholder="Password" name="password" value="{{
+              request.form.password }}">
+           <div class="bouton-centrer">
+           <input class="bouton-login input-login" type="submit" value="Se connecter">
+           </div>
+         </form>
+      </div>
       {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}
       {% endif %}

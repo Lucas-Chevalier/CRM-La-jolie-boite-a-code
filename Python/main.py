@@ -54,7 +54,7 @@ def addlogin():
         #time.sleep(1)
         cur.close()
         database_conn.close()
-        return redirect(location="/CRM_Boite_a_code/add_prospect")
+        return redirect(url_for('index'))
     return render_template('add_login.html', error=error)
 
 
@@ -76,7 +76,7 @@ def addprospect():
         database_conn.close()
         return redirect(location="/CRM_Boite_a_code/add_comment")
 
-    return render_template('titanic.html', form=form)
+    return render_template('crm.html', form=form)
 
 
 @app.route('/CRM_Boite_a_code/add_contact', methods=['GET', 'POST'])
@@ -94,7 +94,7 @@ def addcontact():
         cur.close()
         database_conn.close()
         return redirect(location="/CRM_Boite_a_code/add_comment")
-    return render_template('titanic.html', form=form)
+    return render_template('crm.html', form=form)
 
 
 @app.route('/CRM_Boite_a_code/modify_contact', methods=['GET', 'POST'])
@@ -112,7 +112,7 @@ def modifycontact():
         cur.close()
         database_conn.close()
         return redirect(location="/CRM_Boite_a_code/add_comment")
-    return render_template('titanic.html', form=form)
+    return render_template('crm.html', form=form)
 
 
 @app.route('/CRM_Boite_a_code/add_comment', methods=['GET', 'POST'])
@@ -129,16 +129,20 @@ def addcomment():
         cur.close()
         database_conn.close()
         return redirect(location="/CRM_Boite_a_code/add_prospect")
-    return render_template('titanic.html', form=form)
+    return render_template('add_comment.html', form=form)
 
 @app.route('/CRM_Boite_a_code')
 def index():
 
-    cur = database_conn.cursor()
-    query = "SELECT * FROM LegalEntity"
-    list = cur.execute(query)
-    cur.close()
-    return render_template('titanic_list.html', list=list)
+       database_conn = sqlite3.connect(database_filename, check_same_thread=False)
+       cur = database_conn.cursor()
+       cur.execute("""SELECT Name, City FROM LegalEntity""")
+       legalentity = cur.fetchall()
+       database_conn.commit()
+       cur.close()
+       database_conn.close()
+       print(legalentity)
+       return render_template('prospect_list.html', list=list)
 
 @app.route('/CRM_Boite_a_code/invoice')
 def invoive():
@@ -150,9 +154,10 @@ def invoive():
         'addr2': 'Sunnyville, CA 12345'
     }
     to_addr = {
-        'company_name': 'Acme Corp',
-        'person_name': 'John Dilly',
-        'person_email': 'john@example.com'
+        'company_name': 'Nom du prospet',
+        'person_name': 'Nom du contact',
+        'campany_address': 'Adresse du prospect',
+        'campany_sup_address': 'Code et Ville du prospect'
     }
     items = [
         {

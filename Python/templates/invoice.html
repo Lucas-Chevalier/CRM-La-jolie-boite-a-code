@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Facture</title>
+
+  <style>
+  @page {
+    size: a4 portrait;
+    margin: 0mm 0mm 0mm 0mm;
+    counter-increment: page;
+  }
+  .invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+  }
+
+  .invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+  }
+
+  .invoice-box table td {
+    padding: 5px;
+    vertical-align: top;
+  }
+
+  .invoice-box table tr td:nth-child(2) {
+    text-align: right;
+  }
+
+  .invoice-box table tr.top table td {
+    padding-bottom: 20px;
+  }
+
+  .invoice-box table tr.top table td.title {
+    font-size: 30px;
+    line-height: 45px;
+    color: #333;
+  }
+
+  .invoice-box table tr.information table td {
+    padding-bottom: 40px;
+  }
+
+  .invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+  }
+
+  .invoice-box table tr.details td {
+    padding-bottom: 20px;
+  }
+
+  .invoice-box table tr.item td{
+    border-bottom: 1px solid #eee;
+  }
+
+  .invoice-box table tr.item.last td {
+    border-bottom: none;
+  }
+
+  .invoice-box table tr.total td:nth-child(2) {
+    border-top: 2px solid #eee;
+    font-weight: bold;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .invoice-box table tr.top table td {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+
+    .invoice-box table tr.information table td {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
+  div.divFooter {
+    position: fixed;
+    height: 30px;
+    background-color: purple;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+  }
+
+  .adresse-boite-code {
+     font-size: 15px;
+  }
+
+  .mots-gras {
+     font-weight: bold;
+  }
+
+  .nom-boite {
+     font-size: 30px;
+  }
+
+  .numdate {
+     justify-content: space-between;
+  }
+
+  .facture {
+     text-align: end;
+     font-size: 40px;
+     margin-bottom: 15px;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+      <tr class="top">
+        <td colspan="2">
+            <tr>
+              <td class="title">
+                <span class="nom-boite mots-gras">La Jolie Boite a Code</span><br>
+                <span class="adresse-boite-code">
+                  123 rue du soleil<br>
+                  75009 Paris Cedex 9<br>
+                </span>
+              </td>
+            </tr>
+        </td>
+      </tr>
+
+
+      <tr class="information">
+        <td colspan="2">
+          <table>
+            <tr>
+              <td>
+                <span class="mots-gras">Tel. :</span> 01.23.45.67.89<br>
+                <span class="mots-gras">Email :</span> lajolieboiteacode@gmail.com<br>
+                <span class="mots-gras">IBAN :</span> FR12 1234 1234 1234 1234 1234 123
+              </td>
+              <div class="facture mots-gras">
+                Facture
+              </div>
+              <span>N° de SIREN 123 456 7890</span>
+              <td class="address-prospect">
+                {{to_addr['company_name']}}<br>
+                {{to_addr['person_name']}}<br>
+                {{to_addr['campany_address']}}<br>
+                {{to_addr['campany_sup_address']}}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr class="heading">
+        <td class="numdate">
+          Numéro
+          Date
+        </td>
+      </tr>
+      <td>
+             {{invoice_number}}
+             {{date}}
+      </td>
+    </table>
+  </div>
+  <div class="divFooter"></div>
+</body>
+</html>
