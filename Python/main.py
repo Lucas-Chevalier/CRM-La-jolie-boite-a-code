@@ -14,6 +14,7 @@ from datetime import datetime
 from weasyprint import HTML
 import io
 import uuid
+import sys
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'FULL FLEMME'
@@ -131,7 +132,7 @@ def addcomment():
         return redirect(location="/CRM_Boite_a_code/add_prospect")
     return render_template('add_comment.html', form=form)
 
-@app.route('/CRM_Boite_a_code')
+@app.route('/CRM_Boite_a_code/list_prospect')
 def index():
 
        database_conn = sqlite3.connect(database_filename, check_same_thread=False)
@@ -143,6 +144,10 @@ def index():
        database_conn.close()
        print(legalentity)
        return render_template('prospect_list.html', list=list)
+
+@app.route('/CRM_Boite_a_code')
+def connexion():
+    return render_template('connexion.html')
 
 @app.route('/CRM_Boite_a_code/invoice')
 def invoive():

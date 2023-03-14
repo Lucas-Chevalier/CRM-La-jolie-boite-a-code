@@ -77,7 +77,6 @@ li {
 .container {
    background: white;
    margin: 100px 40px;
-   height: 300px;
    border: solid 3px black;
    border-radius: 10px;
    height: calc(100vh - 300px);
@@ -119,3 +118,68 @@ a {
    text-decoration: none;
    color: black;
 }
+
+.vert {
+   background-color: #45ED61;
+   margin-top: 25px;
+}
+
+.container2 {
+   background: white;
+   margin: 100px 40px;
+   border: solid 3px black;
+   border-radius: 10px;
+   height: calc(25vh - 5px);
+   position: relative;
+   overflow-y: scroll;
+}
+
+@media screen and (max-width: 484px) {
+   .container2 {
+      height: calc(35vh - 5px);
+   }
+
+   .container {
+      height: calc(35vh - 5px);
+   }
+
+
+   .title {
+         text-align: center;
+      }
+   }
+}
+
+
+@media screen and (min-width:485px) and (max-width: 738px) {
+   .container2 {
+      height: calc(35vh - 5px);
+   }
+
+   .container {
+      height: calc(10vh - 5px);
+   }
+}
+
+@media screen and (min-width: 739px) {
+   .container2 {
+      height: calc(35vh - 5px);
+   }
+
+   .container {
+      height: calc(35vh - 5px);
+   }
+}
+
+.rouge {
+   background: #f72015;
+}
+
+.bouton-pdf {
+   width: 75px;
+   text-align: center;
+   padding-right: 0;
+}
+
+
+

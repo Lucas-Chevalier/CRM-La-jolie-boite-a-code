@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CRM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  </head>
+  <body>
+  <header>
+    <h1>La jolie boite à code</h1>
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li>Déconnexion</li>
+    </ul>
+  </header>
+  <div class="container2" id="connexion">
+      <span class="title border-radius-top jaune">Veuillez-vous connecter ou créer un compte</span>
+      <br>
+      <div class="form-add-login">
+        <div class="bouton-centrer">
+          <input class="bouton-login input-login" name="bouton_login" type="button" value="Se connecter" onclick="document.location.href='/CRM_Boite_a_code/login'">
+          <input class="bouton-login input-login vert" name="bouton_creation_compte" type="button" value="Créer un compte" onclick="document.location.href='/CRM_Boite_a_code/add_login'">
+        </div>
+      </div>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+  </div>
+
+
+
+
+
+
+  </body>
+</html>
