@@ -179,6 +179,70 @@ a {
    width: 75px;
    text-align: center;
    padding-right: 0;
+   padding-left: 0;
+}
+
+table,
+td {
+    border: solid 3px black;
+    border-radius: 10px;
+    width: 75%;
+    text-align: center;
+    margin: 50px auto;
+    background: white;
+}
+
+th {
+   background: #F7DC6F;
+   color: black;
+   border-radius: 10px;
+}
+
+ul.list-prospect {
+   list-style-type: none;
+   margin: 0;
+   padding: 13px;
+   width: 50%;
+   text-align: -webkit-auto;
+   display: inline-grid;
+   justify-items: center;
+}
+
+.prospect-list {
+   display: inline;
+   margin: 5px;
+   border: solid 3px black;
+   border-radius: 10px;
+   width: 75%;
+   text-align: center;
+   background: #E5E7E9;
+}
+
+.bouton-new-prospect {
+   width: auto;
+   background: #7FB3D5;
+   display: block;
+   margin: 25px auto;
+}
+
+.input-login.bouton-new-prospect {
+   padding: 1px 6px;
+}
+
+.bouton-add-contact, .bouton-inactif-contact {
+   width: 90%;
+   text-align: center;
+   padding-right: 6px;
+}
+
+
+.bouton-add-contact.vert {
+   margin-top: 15px;
+}
+
+.white {
+   background: white;
+   border-color: #f72015;
 }
 
 

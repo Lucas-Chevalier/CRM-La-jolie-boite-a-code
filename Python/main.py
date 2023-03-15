@@ -132,18 +132,42 @@ def addcomment():
         return redirect(location="/CRM_Boite_a_code/add_prospect")
     return render_template('add_comment.html', form=form)
 
-@app.route('/CRM_Boite_a_code/list_prospect')
+@app.route('/CRM_Boite_a_code/list_prospect', methods=['GET'])
 def index():
 
        database_conn = sqlite3.connect(database_filename, check_same_thread=False)
        cur = database_conn.cursor()
-       cur.execute("""SELECT Name, City FROM LegalEntity""")
-       legalentity = cur.fetchall()
+       cur.execute("""SELECT Name, City FROM LegalEntity ORDER BY Name""")
+       data_from_database = cur.fetchall()
        database_conn.commit()
        cur.close()
        database_conn.close()
-       print(legalentity)
-       return render_template('prospect_list.html', list=list)
+       print(data_from_database)
+       return render_template('prospect_list.html', data_from_database = data_from_database)
+
+@app.route('/CRM_Boite_a_code/view_prospect', methods=['GET'])
+def view_prospect():
+    database_conn = sqlite3.connect(database_filename, check_same_thread=False)
+    cur = database_conn.cursor()
+    cur.execute("""SELECT Firstname, Lastname, Status FROM Contact WHERE Status = 'Actif' """)
+    data_from_database = cur.fetchall()
+    database_conn.commit()
+    cur.close()
+    database_conn.close()
+    print(data_from_database)
+    return render_template('view_prospect.html', data_from_database = data_from_database)
+
+@app.route('/CRM_Boite_a_code/view_inactif_contact', methods=['GET'])
+def view_inactif_contact():
+    database_conn = sqlite3.connect(database_filename, check_same_thread=False)
+    cur = database_conn.cursor()
+    cur.execute("""SELECT Firstname, Lastname FROM Contact WHERE Status = 'Inactif' """)
+    data_from_database = cur.fetchall()
+    database_conn.commit()
+    cur.close()
+    database_conn.close()
+    print(data_from_database)
+    return render_template('inactif_contact.html', data_from_database = data_from_database)
 
 @app.route('/CRM_Boite_a_code')
 def connexion():

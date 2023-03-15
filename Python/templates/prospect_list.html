@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CRM</title>
     <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
   </head>
   <body>
@@ -13,15 +13,33 @@
         <li>Déconnexion</li>
     </ul>
   </header>
-
-
-  <input class="bouton-pdf input-login rouge" name="bouton_pdf" type="button" value="PDF" onclick="document.location.href='/CRM_Boite_a_code/invoice'">
-
-
-
-
-
-
-
+  <input class="bouton-new-prospect input-login" name="bouton_new_prospect" type="button" value="Nouveau prospect" onclick="document.location.href='/CRM_Boite_a_code/add_prospect'">
+  <table>
+      <thead>
+          <tr>
+              <th colspan="3">Liste des entreprises</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><ul class="list-prospect">
+                    {% for prospect in data_from_database %}
+                  <li class="prospect-list"><a href="{{url_for('view_prospect')}}">{{ prospect[0] }}</a></li>
+                     {% endfor %}
+              </ul></td>
+              <td><ul class="list-prospect">
+                    {% for prospect in data_from_database %}
+                      <li class="prospect-list">{{ prospect[1] }}</li>
+                     {% endfor %}
+              </ul></td>
+              <td>
+                  <input class="bouton-pdf input-login rouge" name="bouton_pdf" type="button" value="PDF" onclick="document.location.href='/CRM_Boite_a_code/invoice'">
+                  <input class="bouton-pdf input-login rouge" name="bouton_pdf" type="button" value="PDF" onclick="document.location.href='/CRM_Boite_a_code/invoice'">
+                  <input class="bouton-pdf input-login rouge" name="bouton_pdf" type="button" value="PDF" onclick="document.location.href='/CRM_Boite_a_code/invoice'">
+                  <input class="bouton-pdf input-login rouge" name="bouton_pdf" type="button" value="PDF" onclick="document.location.href='/CRM_Boite_a_code/invoice'">
+              </td>
+          </tr>
+      </tbody>
+  </table>
   </body>
 </html>

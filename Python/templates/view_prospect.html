@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CRM</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  </head>
+  <body>
+  <header>
+    <h1>La jolie boite à code</h1>
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li>Déconnexion</li>
+    </ul>
+  </header>
+  <table>
+      <thead>
+          <tr>
+              <th colspan="3">Contacts actifs</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><ul class="list-prospect">
+                    {% for prospect in data_from_database %}
+                  <li class="prospect-list">{{ prospect[0] }}</li>
+                     {% endfor %}
+              </ul></td>
+              <td><ul class="list-prospect">
+                    {% for prospect in data_from_database %}
+                      <li class="prospect-list">{{ prospect[1] }}</li>
+                     {% endfor %}
+              </ul></td>
+              <td>
+                <input class="bouton-add-contact input-login vert" name="bouton_add_contact" type="button" value="Ajouter un contact" onclick="document.location.href='/CRM_Boite_a_code/add_contact'">
+                <input class="bouton-inactif-contact input-login rouge" name="bouton_inactif_contact" type="button" value="Contacts inactifs" onclick="document.location.href='/CRM_Boite_a_code/view_inactif_contact'">
+                <input class="bouton-pdf input-login white" name="bouton_pdf" type="button" value="Facture" onclick="document.location.href='/CRM_Boite_a_code/invoice'">
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  </body>
+</html>
